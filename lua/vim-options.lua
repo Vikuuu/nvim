@@ -25,3 +25,6 @@ vim.api.nvim_set_keymap(
 
 -- Terminal Mode: Clear internal buffer and return to terminal insert mode
 vim.api.nvim_set_keymap("t", "<C-w><C-l>", "<C-\\><C-n><C-w><C-l>i<C-l>", { noremap = true, silent = true })
+
+-- Nvim cursor setting
+vim.cmd("set guicursor=i-ci-ve:ver10,i-ci-ve:hor35") -- underscore for cursor
