@@ -10,6 +10,8 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
+-- make the cursor block even in insert mode
+vim.opt.guicursor = ""
 
 require("vim-options")
 require("lazy").setup("plugins")

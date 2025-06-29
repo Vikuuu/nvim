@@ -17,10 +17,24 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
+			local on_attach = require("mason-lspconfig").on_attach
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local util = require("lspconfig/util")
 			local lspconfig = require("lspconfig")
 
+			lspconfig.rust_analyzer.setup({
+				on_attach = on_attach,
+				capabilties = capabilities,
+				filetypes = { "rust" },
+				root_dir = util.root_pattern("Cargo.toml"),
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+						},
+					},
+				},
+			})
 			lspconfig.gopls.setup({
 				capabilties = capabilities,
 				cmd = { "gopls" },
