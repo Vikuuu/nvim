@@ -1,15 +1,27 @@
 -- return {}
 
 -- CATPPUCCIN THEME
+--  return {
+--  	"catppuccin/nvim",
+--  	lazy = false,
+--  	name = "catppuccin",
+--  	-- priority = 500,
+--  	config = function()
+--  		vim.cmd.colorscheme("catppuccin-mocha")
+--  		-- this command to make the background transparent
+--  		-- vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
+--  		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--  		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--  	end,
+--  }
+
+-- ROSE PINE
+-- lua/plugins/rose-pine.lua
 return {
-	"catppuccin/nvim",
-	lazy = false,
-	name = "catppuccin",
-	-- priority = 500,
+	"rose-pine/neovim",
+	name = "rose-pine",
 	config = function()
-		vim.cmd.colorscheme("catppuccin-mocha")
-		-- this command to make the background transparent
-		-- vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
+		vim.cmd("colorscheme rose-pine")
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	end,
