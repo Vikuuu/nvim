@@ -23,16 +23,16 @@ vim.keymap.set("v", "<C-u>", "<C-u>zz")
 vim.keymap.set("i", "<C-H>", "<C-W>") -- use ctrl+backspace to delete the whole word
 -- vim.keymap.set("n", "<leader>n", ":Ex<CR>")
 
-require "lua.config.plugins.colorscheme"
-require "lua.config.plugins.lsp-config"
-require "lua.config.plugins.mini"
-require "lua.config.plugins.oil"
-require "lua.config.plugins.treesitter"
-require "lua.config.plugins.typst-preview"
-require "lua.config.plugins.pear-tree"
-require "lua.config.plugins.gitsigns"
-require "lua.config.plugins.lualine"
-require "lua.config.plugins.conform"
+require "config.plugins.colorscheme"
+require "config.plugins.lsp-config"
+require "config.plugins.mini"
+require "config.plugins.oil"
+require "config.plugins.treesitter"
+require "config.plugins.typst-preview"
+require "config.plugins.pear-tree"
+require "config.plugins.gitsigns"
+require "config.plugins.lualine"
+require "config.plugins.conform"
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
@@ -43,3 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 vim.cmd("set completeopt+=noselect")
+
+-- custom package
+-- require "plugin.floatterm"
+vim.keymap.set("n", "<C-\\>", ":Floaterminal<CR>")
