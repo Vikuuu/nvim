@@ -6,7 +6,9 @@ require "conform".setup({
     formatters_by_ft = {
         lua = { "stylua" },
         -- installed these using `go install`
-        go = { "gofmtpt", "goimports-reviser", "golines" }
+        go = { "gofumpt", "goimports-reviser", "golines" },
+        html = { "prettier" },
+        template = { "prettier" },
     },
     format_on_save = {
         async = false,

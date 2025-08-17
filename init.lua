@@ -1,4 +1,14 @@
+-- Set Leader key
+vim.g.mapleader = " "
+
+-- Set cursor
+vim.o.guicursor = ""
+
+-- Print an ascii art on opening
+vim.cmd(":echo '>^.^<'")
+
 -- Set options
+vim.o.winborder = "rounded"
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.expandtab = true
@@ -6,13 +16,6 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.swapfile = false
-vim.o.winborder = "rounded"
-
--- Set cursor
-vim.o.guicursor = ""
-
--- Set Leader key
-vim.g.mapleader = " "
 
 -- Keymaps
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
@@ -20,19 +23,23 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<C-d>", "<C-d>zz")
 vim.keymap.set("v", "<C-u>", "<C-u>zz")
-vim.keymap.set("i", "<C-H>", "<C-W>") -- use ctrl+backspace to delete the whole word
+-- use ctrl+backspace to delete the whole word
+vim.keymap.set("i", "<C-H>", "<C-W>")
+vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.open_float()<CR>")
+-- uppercase the whole word backwords
+vim.keymap.set("i", "<C-u>", "<esc>vbUea")
 -- vim.keymap.set("n", "<leader>n", ":Ex<CR>")
 
-require "config.plugins.colorscheme"
-require "config.plugins.lsp-config"
-require "config.plugins.mini"
-require "config.plugins.oil"
-require "config.plugins.treesitter"
-require "config.plugins.typst-preview"
-require "config.plugins.pear-tree"
-require "config.plugins.gitsigns"
-require "config.plugins.lualine"
-require "config.plugins.conform"
+require "plugin.colorscheme"
+require "plugin.conform"
+require "plugin.gitsigns"
+require "plugin.lsp-config"
+require "plugin.lualine"
+require "plugin.mini"
+require "plugin.oil"
+require "plugin.pear-tree"
+require "plugin.treesitter"
+require "plugin.typst-preview"
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)

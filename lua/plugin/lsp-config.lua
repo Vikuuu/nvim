@@ -2,19 +2,21 @@ vim.pack.add(
     { "https://github.com/neovim/nvim-lspconfig" }
 )
 
-
 vim.lsp.enable({
     "lua_ls",
     "gopls",
     "html",
     "pylsp",
     "harper_ls",
+    "typescript-language-server",
+    "vscode-langservers-extracted",
+    "tailwindcss-intellisense",
 })
 
 -- go language server
 vim.lsp.config("gopls", {
-    -- capabilities = require("blink.cmp").get_lsp_capabilities(),
-    cmd = { "gopls" },
+    -- cmd = { "gopls" },
+    cmd = { "/home/viku/go/bin/gopls" },
     filetypes = { "go", "gomod", "gowork", "gotmpl" },
     settings = {
         gopls = {
@@ -27,9 +29,12 @@ vim.lsp.config("gopls", {
     },
 })
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 -- HTML language server
 vim.lsp.config("html", {
-    -- capabilities = require("blink.cmp").get_lsp_capabilities(),
+    capabilities = capabilities,
     filetypes = { "html", "templ", "tmpl" },
 })
 
