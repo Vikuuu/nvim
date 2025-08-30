@@ -11,6 +11,7 @@ vim.lsp.enable({
     "typescript-language-server",
     "vscode-langservers-extracted",
     "tailwindcss-intellisense",
+    "astro",
 })
 
 -- go language server
@@ -50,6 +51,11 @@ vim.lsp.config("harper_ls", {
         },
     },
 })
+
+vim.lsp.config("tailwindcss-intellisense", {})
+vim.lsp.config("typescript-language-server", {})
+vim.lsp.config("vscode-langservers-extracted", {})
+vim.lsp.config("astro", {})
 
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format) -- file formatting
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
